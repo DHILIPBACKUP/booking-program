@@ -1,44 +1,7 @@
 <?xml version="1.0"?>
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/ui_configuration.xsd">
-    <fieldset name="custom_tab_fieldset" sortOrder="100">
-        <settings>
-            <label translate="true">Additional Settings</label>
-            <collapsible>true</collapsible>
-            <opened>false</opened>
-        </settings>
 
-        <field name="select_example" sortOrder="50" formElement="select">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="validation" xsi:type="array">
-                        <item name="select_example" xsi:type="boolean">true</item>
-                        <item name="required-entry" xsi:type="boolean">true</item>
-                    </item>
-                </item>
-            </argument>
-            <settings>
-                <dataType>text</dataType>
-                <label translate="true">Select Example</label>
-            </settings>
-            <formElements>
-                <select>
-                    <settings>
-                        <options class="Inchoo\Helloworld\Model\Source\CustomOptions"/>
-                    </settings>
-                </select>
-            </formElements>
-        </field>
-
-        <field name="dependent_field_1" sortOrder="51" formElement="input">
-            <settings>
-                <dataType>text</dataType>
-                <label translate="true">Dependent Field 1</label>
-<!--                <visible>false</visible> &lt;!&ndash; Initially hidden &ndash;&gt;-->
-            </settings>
-        </field>
-    </fieldset>
-    
-      <fieldset name="tier_price_fs" sortOrder="101">
+    <fieldset name="tier_price_fs" sortOrder="101">
         <settings>
             <label translate="true">Additional Settings 2</label>
             <collapsible>true</collapsible>
@@ -74,8 +37,14 @@
                     <settings>
                         <dataType>text</dataType>
                         <label translate="true">Website</label>
-                        <dataScope>website_id</dataScope>
                     </settings>
+                    <formElements>
+                        <select>
+                            <settings>
+                                <options class="Inchoo\Helloworld\Model\Source\CustomOptions"/>
+                            </settings>
+                        </select>
+                    </formElements>
                 </field>
                 <field name="qty" component="Magento_SharedCatalog/js/form/element/input" sortOrder="20" formElement="input">
                     <settings>
@@ -107,10 +76,13 @@
                                 </item>
                             </item>
                         </argument>
-                        <settings>
-                            <dataType>text</dataType>
-                            <dataScope>value_type</dataScope>
-                        </settings>
+                        <formElements>
+                            <select>
+                                <settings>
+                                    <options class="Inchoo\Helloworld\Model\Source\CustomOptions"/>
+                                </settings>
+                            </select>
+                        </formElements>
                     </field>
                     <field name="price" component="Magento_SharedCatalog/js/tier-price/fields-with-currency" sortOrder="20" formElement="input">
                         <settings>
@@ -154,4 +126,45 @@
         </dynamicRows>
     </fieldset>
 
+
+    <fieldset name="custom_tab_fieldset" sortOrder="100">
+        <settings>
+            <label translate="true">Additional Settings</label>
+            <collapsible>true</collapsible>
+            <opened>false</opened>
+        </settings>
+
+        <field name="select_example" sortOrder="50" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="validation" xsi:type="array">
+                        <item name="select_example" xsi:type="boolean">true</item>
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Select Example</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Inchoo\Helloworld\Model\Source\CustomOptions"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="dependent_field_1" sortOrder="51" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Dependent Field 1</label>
+            </settings>
+        </field>
+    </fieldset>
+
+
+
 </form>
+
